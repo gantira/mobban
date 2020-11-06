@@ -23,7 +23,7 @@
                         <div class="form-group">
                             <label class="text-uppercase text-muted">datel</label>
                             <input wire:model="datel" type="text"
-                                class="form-control @error('datel') is_invalid @enderror" placeholder="" />
+                                class="form-control @error('datel') is-invalid @enderror" placeholder="" />
                             @error('datel')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -32,7 +32,7 @@
                         </div>
                         <div class="form-group">
                             <label class="text-uppercase text-muted">sto</label>
-                            <input wire:model="sto" type="text" class="form-control @error('sto') is_invalid @enderror"
+                            <input wire:model="sto" type="text" class="form-control @error('sto') is-invalid @enderror"
                                 placeholder="" />
                             @error('sto')
                             <div class="invalid-feedback">
@@ -43,7 +43,7 @@
                         <div class="form-group">
                             <label class="text-uppercase text-muted">track_id</label>
                             <input wire:model="track_id" type="text"
-                                class="form-control @error('track_id') is_invalid @enderror" placeholder="" />
+                                class="form-control @error('track_id') is-invalid @enderror" placeholder="" />
                             @error('track_id')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -63,7 +63,7 @@
                         <div class="form-group">
                             <label class="text-uppercase text-muted">date</label>
                             <input wire:model="date" type="text"
-                                class="form-control @error('date') is_invalid @enderror" placeholder="" />
+                                class="form-control @error('date') is-invalid @enderror" placeholder="" />
                             @error('date')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -73,7 +73,7 @@
                         <div class="form-group">
                             <label class="text-uppercase text-muted">kategori</label>
                             <input wire:model="kategori" type="text"
-                                class="form-control @error('kategori') is_invalid @enderror" placeholder="" />
+                                class="form-control @error('kategori') is-invalid @enderror" placeholder="" />
                             @error('kategori')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -83,7 +83,7 @@
                         <div class="form-group">
                             <label class="text-uppercase text-muted">evidence</label>
                             <input wire:model="evidence" type="text"
-                                class="form-control @error('evidence') is_invalid @enderror" placeholder="" />
+                                class="form-control @error('evidence') is-invalid @enderror" placeholder="" />
                             @error('evidence')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -93,7 +93,7 @@
                         <div class="form-group">
                             <label class="text-uppercase text-muted">user_name_telegram</label>
                             <input wire:model="user_name_telegram" type="text"
-                                class="form-control @error('sto') is_invalid @enderror" placeholder="" />
+                                class="form-control @error('sto') is-invalid @enderror" placeholder="" />
                             @error('user_name_telegram')
                             <div class="invalid-feedback">
                                 {{ $message }}

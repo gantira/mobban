@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Livewire\{Dashboards, Botsfs, Botteknisis, Userbots};
+use App\Http\Livewire\{Dashboards, Botsfs, Botteknisis, Userbots, Categories};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +18,7 @@ Route::get('/', Dashboards\Index::class)->name('dashboards.index');
 Route::get('/botsfs', Botsfs\Index::class)->name('botsfs.index');
 Route::get('/botteknisis', Botteknisis\Index::class)->name('botteknisis.index');
 Route::get('/userbots', Userbots\Index::class)->name('userbots.index');
+Route::get('/categories', Categories\Index::class)->name('categories.index');
 
 Auth::routes();
 

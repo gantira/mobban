@@ -59,7 +59,12 @@
             </li>
             <li class="menu-item {{ Request::segment(1) === 'userbots' ? 'menu-item-active' : null }}">
                 <a href="{{ route('userbots.index') }}" class="menu-link">
-                    <span class="menu-text">User Bot </span>
+                    <span class="menu-text">User Bot</span>
+                </a>
+            </li>
+            <li class="menu-item {{ Request::segment(1) === 'categories' ? 'menu-item-active' : null }}">
+                <a href="{{ route('categories.index') }}" class="menu-link">
+                    <span class="menu-text">Categories</span>
                 </a>
             </li>
 

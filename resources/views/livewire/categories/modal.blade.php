@@ -1,9 +1,10 @@
-<div wire:ignore.self class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div wire:ignore.self class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <form wire:submit.prevent='submit'>
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Input User Bot Telegeram</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Input Categories</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <i aria-hidden="true" class="ki ki-close"></i>
                     </button>
@@ -21,23 +22,13 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="text-uppercase text-muted">Bot</label>
-                            <input wire:model.defer="bot" type="text"
-                                class="form-control @error('bot') is-invalid @enderror" placeholder="" />
-                            @error('bot')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label class="text-uppercase text-muted">User Name Telegram</label>
-                            <input wire:model.defer="user_name_telegram" type="text" class="form-control @error('user_name_telegram') is-invalid @enderror"
-                                placeholder="" />
-                            @error('user_name_telegram')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
+                            <label class="text-uppercase text-muted">name</label>
+                            <input wire:model.defer="name" type="text"
+                                class="form-control @error('name') is-invalid @enderror" placeholder="" />
+                            @error('name')
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
                             @enderror
                         </div>
                     </div>
