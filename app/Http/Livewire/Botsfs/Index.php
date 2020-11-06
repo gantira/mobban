@@ -13,7 +13,7 @@ class Index extends Component
     use WithPagination;
 
     public $paginate = 5;
-    public $kategori;
+    public $kategori ='WAITING';
     public $search;
 
     protected $queryString = ['search'];

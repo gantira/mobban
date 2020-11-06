@@ -44,7 +44,7 @@
                     <label class="btn btn-outline-primary" wire:ignore>
                         <i class="flaticon2-pie-chart"></i>
                         <input type="radio" name="options" id="option1" wire:click="$set('kategori', 'ASSIGNE')" />
-                        ASSIGNE
+                        ASSIGNED
                     </label>
                     <label class="btn btn-outline-primary" wire:ignore>
                         <i class="flaticon2-pie-chart"></i>
@@ -130,7 +130,7 @@
                                             <i class="flaticon-paper-plane"></i>
                                             <span class="pulse-ring"></span>
                                         </a>
-                                    @elseif ($kategori == 'ASSIGNE')
+                                    @elseif ($kategori == 'ASSIGNED')
 
                                     @else
                                         <a wire:click="$emit('edit', {{ $item }})"
