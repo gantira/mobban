@@ -48,7 +48,7 @@
                     </label>
                     <label class="btn btn-outline-primary" wire:ignore>
                         <i class="flaticon2-pie-chart"></i>
-                        <input type="radio" name="options" id="option3" wire:click="$set('kategori', 'IN PROGRESS')" />
+                        <input type="radio" name="options" id="option3" wire:click="$set('kategori', '')" />
                         INFO PROGRESS
                     </label>
                 </div>
@@ -92,7 +92,9 @@
                             <th>teknisi</th>
                             <th>layanan</th>
                             <th>wo id</th>
-                            <th>actions</th>
+                            @if ($kategori <> 'ASSIGNE')
+                                <th>actions</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -120,17 +122,29 @@
                                 <td>{{ $item->teknisi }}</td>
                                 <td>{{ $item->layanan }}</td>
                                 <td>{{ $item->wo_id }}</td>
+
                                 <td class="text-nowrap">
-                                    <a wire:click="$emit('edit', {{ $item }})"
-                                        class="btn btn-icon btn-light-info pulse pulse-info">
-                                        <i class="flaticon-edit"></i>
-                                        <span class="pulse-ring"></span>
-                                    </a>
-                                    <a wire:click="showConfirmation({{ $item->id }})"
-                                        class="btn btn-icon btn-light-danger pulse pulse-danger">
-                                        <i class="flaticon2-trash"></i>
-                                        <span class="pulse-ring"></span>
-                                    </a>
+                                    @if ($kategori == 'WAITING')
+                                        <a wire:click="$emit('edit', {{ $item }})"
+                                            class="btn btn-icon btn-light-success pulse pulse-success">
+                                            <i class="flaticon-paper-plane"></i>
+                                            <span class="pulse-ring"></span>
+                                        </a>
+                                    @elseif ($kategori == 'ASSIGNE')
+
+                                    @else
+                                        <a wire:click="$emit('edit', {{ $item }})"
+                                            class="btn btn-icon btn-light-info pulse pulse-info">
+                                            <i class="flaticon-edit"></i>
+                                            <span class="pulse-ring"></span>
+                                        </a>
+
+                                        <a wire:click="showConfirmation({{ $item->id }})"
+                                            class="btn btn-icon btn-light-danger pulse pulse-danger">
+                                            <i class="flaticon2-trash"></i>
+                                            <span class="pulse-ring"></span>
+                                        </a>
+                                    @endif
                                 </td>
                             </tr>
                         @empty
@@ -142,8 +156,17 @@
                 </table>
             </div>
             <!--end: Datatable-->
-            <div class="my-3">
-                {{ $botsfs->links() }}
+            <div class="d-flex justify-content-between align-content-center my-3">
+                <div>
+                    {{ $botsfs->links() }}
+                </div>
+                <div class="d-flex text-nowrap align-items-center">
+                    <span class="mr-3">Show Page </span>
+                    <select wire:model='paginate' class="form-control form-control-sm">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
             </div>
         </div>
         <!--end::Body-->

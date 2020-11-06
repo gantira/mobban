@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Botsfs;
 
 use App\Models\BotSf;
+use App\Models\Category;
 use App\Models\UserBot;
 use Livewire\Component;
 
@@ -36,7 +37,8 @@ class Modal extends Component
     public function render()
     {
         return view('livewire.botsfs.modal', [
-            'selectUserBots' => UserBot::all()
+            'selectUserBots' => UserBot::all(),
+            'selectCategories' => Category::all(),
         ]);
     }
 

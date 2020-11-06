@@ -135,9 +135,9 @@
                                 </td>
                             </tr>
                         @empty
-                        <tr class="text-center">
-                            <td colspan="9">Tidak ada data</td>
-                        </tr>
+                            <tr class="text-center">
+                                <td colspan="9">Tidak ada data</td>
+                            </tr>
                         @endforelse
                     </tbody>
                 </table>
