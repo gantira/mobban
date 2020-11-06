@@ -16,7 +16,7 @@ class CreateBotSfsTable extends Migration
         Schema::create('bot_sfs', function (Blueprint $table) {
             $table->id();
             $table->string('sto')->nullable();
-            $table->string('date')->nullable();
+            $table->string('datel')->nullable();
             $table->string('nama')->nullable();
             $table->string('track_id')->nullable();
             $table->string('no_hp1')->nullable();

@@ -28,8 +28,12 @@ class Index extends Component
                 $query->where('kategori', $this->kategori);
             })->when($this->search, function ($query) {
                 $query
-                    ->orWhere('track_id', 'like', '%' . $this->search . '%')
-                    ->orWhere('nama', 'like', '%' . $this->search . '%');
+                    ->orWhere('track_id',  $this->search)
+                    ->orWhere('odp',  $this->search)
+                    ->orWhere('sto',  $this->search)
+                    ->orWhere('datel',  $this->search)
+                    ->orWhere('kategori',  $this->search)
+                    ->orWhere('nama',  $this->search);
             })
                 ->orderByDesc('created_at')
                 ->paginate($this->paginate),
