@@ -38,12 +38,12 @@
                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label class="btn btn-outline-primary" wire:ignore>
                         <i class="flaticon2-pie-chart"></i>
-                        <input type="radio" name="options" id="option2" wire:click="$set('kategori', 'WAITING')" />
+                        <input type="radio" name="options" id="option2" checked wire:click="$set('kategori', 'WAITING')" />
                         WAITING
                     </label>
                     <label class="btn btn-outline-primary" wire:ignore>
                         <i class="flaticon2-pie-chart"></i>
-                        <input type="radio" name="options" id="option1" wire:click="$set('kategori', 'ASSIGNE')" />
+                        <input type="radio" name="options" id="option1" wire:click="$set('kategori', 'ASSIGNED')" />
                         ASSIGNED
                     </label>
                     <label class="btn btn-outline-primary" wire:ignore>
@@ -92,7 +92,7 @@
                             <th>teknisi</th>
                             <th>layanan</th>
                             <th>wo id</th>
-                            @if ($kategori <> 'ASSIGNE')
+                            @if ($kategori <> 'ASSIGNED')
                                 <th>actions</th>
                             @endif
                         </tr>
