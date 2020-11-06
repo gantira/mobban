@@ -22,8 +22,11 @@
                         </div>
                         <div class="form-group">
                             <label class="text-uppercase text-muted">Bot</label>
-                            <input wire:model.defer="bot" type="text"
-                                class="form-control @error('bot') is-invalid @enderror" placeholder="" />
+                            <select wire:model="bot" class="form-control @error('bot') is-invalid @enderror">
+                                <option value=""></option>
+                                <option value="@mobban_sf_bot">@mobban_sf_bot</option>
+                                <option value="@mobban_teknisi_bot">@mobban_teknisi_bot</option>
+                            </select>
                             @error('bot')
                             <div class="invalid-feedback">
                                 {{ $message }}

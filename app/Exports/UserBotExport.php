@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\UserBot;
+use App\Models\UserBot;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
 class UserBotExport implements FromCollection
