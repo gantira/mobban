@@ -9,8 +9,6 @@ class BotTeknisi extends Model
 {
     use HasFactory;
 
-    protected $table = 'bot_teknisi';
-
     protected $fillable = [
         'datel',
         'sto',

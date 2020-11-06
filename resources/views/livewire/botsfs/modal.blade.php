@@ -58,7 +58,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="text-uppercase text-muted">track id</label>
-                                <input wire:model.defer="track_id" type="text" @if ($editMode) readonly @endif
+                                <input wire:model.defer="track_id" type="number" @if ($editMode) readonly @endif
                                 class="form-control @error('track_id') is-invalid @enderror " placeholder="" />
                                 @error('track_id')
                                     <div class="text-danger">
@@ -68,7 +68,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="text-uppercase text-muted">no hp 1</label>
-                                <input wire:model.defer="no_hp_1" type="text" @if ($editMode) readonly @endif
+                                <input wire:model.defer="no_hp_1" type="number" @if ($editMode) readonly @endif
                                 class="form-control @error('no_hp_1') is-invalid @enderror " placeholder="" />
                                 @error('no_hp_1')
                                     <div class="text-danger">
@@ -78,7 +78,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="text-uppercase text-muted">no hp 2</label>
-                                <input wire:model.defer="no_hp_2" type="text" @if ($editMode) readonly @endif
+                                <input wire:model.defer="no_hp_2" type="number" @if ($editMode) readonly @endif
                                 class="form-control @error('no_hp_2') is-invalid @enderror " placeholder="" />
                                 @error('no_hp_2')
                                     <div class="text-danger">

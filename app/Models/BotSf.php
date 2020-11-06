@@ -9,8 +9,6 @@ class BotSf extends Model
 {
     use HasFactory;
 
-    protected $table = 'bot_sf';
-
     protected $fillable = [
         'sto',
         'date',

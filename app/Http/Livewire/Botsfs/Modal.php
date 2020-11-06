@@ -64,7 +64,7 @@ class Modal extends Component
                 'sto' => 'nullable',
                 'datel' => 'nullable',
                 'nama' => 'nullable',
-                'track_id' => 'nullable',
+                'track_id' => 'nullable|unique:bot_sfs',
                 'no_hp_1' => 'nullable',
                 'no_hp_2' => 'nullable',
                 'alamat' => 'nullable',
