@@ -21,4 +21,14 @@ class BotTeknisi extends Model
         'evidence',
         'user_name_telegram',
     ];
+
+    public function getKategoriLabelAttribute()
+    {
+        if ($this->kategori == 'LIVE') {
+            $kategori = "<span class='badge badge-success'>{$this->kategori}</span>";
+        } else {
+            $kategori = $this->kategori;
+        }
+        return $kategori;
+    }
 }

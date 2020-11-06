@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Botteknisis;
 
 use App\Models\BotTeknisi;
+use App\Models\Category;
 use Livewire\Component;
 
 class Modal extends Component
@@ -22,7 +23,9 @@ class Modal extends Component
 
     public function render()
     {
-        return view('livewire.botteknisis.modal');
+        return view('livewire.botteknisis.modal', [
+            'selectCategories' => Category::all(),
+        ]);
     }
 
     public function add()

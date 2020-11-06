@@ -12,15 +12,24 @@ class Index extends Component
 {
     use WithPagination;
 
-    public $paginate = 10;
-    
+    public $paginate = 5;
+    public $search;
+
+    protected $queryString = ['search'];
     protected $paginationTheme = 'bootstrap';
-    protected $listeners = ['refresh' => '$refresh', 'destroy'];
+    protected $listeners = ['refresh' => '$refresh', 'destroy', 'export'];
 
     public function render()
     {
         return view('livewire.botteknisis.index', [
-            'botteknisis' => BotTeknisi::paginate($this->paginate),
+            'botteknisis' => BotTeknisi::when($this->search, function ($query) {
+                $query
+                    ->orWhere('track_id',  $this->search)
+                    ->orWhere('datel',  $this->search)
+                    ->orWhere('kategori',  $this->search)
+                    ->orWhere('user_name_telegram',  $this->search);
+            })
+                ->orderByDesc('created_at')->paginate($this->paginate),
         ]);
     }
 

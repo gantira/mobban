@@ -11,7 +11,6 @@
                 </div>
                 <div class="modal-body">
                     <!--begin::Form-->
-
                     <div class="form-group mb-8">
                         <div class="alert alert-custom alert-default" role="alert">
                             <div class="alert-icon"><i class="flaticon-warning text-primary"></i></div>
@@ -128,7 +127,6 @@
                                     </div>
                                 @enderror
                             </div>
-
                         </div>
                         <div class="col-lg-6 col-md-12">
                             <div class="form-group">
