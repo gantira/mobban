@@ -14,12 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', Dashboards\Index::class)->name('dashboards.index');
-Route::get('/botsfs', Botsfs\Index::class)->name('botsfs.index');
-Route::get('/botteknisis', Botteknisis\Index::class)->name('botteknisis.index');
-Route::get('/userbots', Userbots\Index::class)->name('userbots.index');
-Route::get('/categories', Categories\Index::class)->name('categories.index');
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/', Dashboards\Index::class)->name('dashboards.index');
+    Route::get('/botsfs', Botsfs\Index::class)->name('botsfs.index');
+    Route::get('/botteknisis', Botteknisis\Index::class)->name('botteknisis.index');
+    Route::get('/userbots', Userbots\Index::class)->name('userbots.index');
+    Route::get('/categories', Categories\Index::class)->name('categories.index');
+});
