@@ -139,10 +139,10 @@
                                     </div>
                                 @enderror
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" wire:ignore>
                                 <label class="text-uppercase text-muted">kategori</label>
-                                <select class="form-control" wire:model="kategori" name="param">
-                                    <option value=""></option>
+                                <select class="form-control" id="kategori" wire:model="kategori" style="width: 100%">
+                                    <option value="">Choose..</option>
                                     @foreach ($selectCategories as $item)
                                         <option value="{{ $item->name }}">{{ $item->name }}</option>
                                     @endforeach
@@ -194,12 +194,15 @@
                                     </div>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <label class="text-uppercase text-muted">teknisi</label>
-                                <select class="form-control" wire:model="teknisi" name="param">
-                                    <option value=""></option>
+                            <div class="form-group" wire:ignore>
+                                <label class="text-uppercase text-muted">teknisi {{ $teknisi }}</label>
+
+                                <select class="form-control" id="teknisi" wire:model="teknisi" style="width: 100%">
+                                    <option value="">Choose..</option>
                                     @foreach ($selectUserBots as $item)
-                                        <option value="{{ $item->user_name_telegram }}">{{ $item->user_name_telegram }}
+                                        <option value="{{ $item->user_name_telegram }}"
+                                            {{ $teknisi == $item->user_name_telegram ? 'selected' : '' }}>
+                                            {{ $item->user_name_telegram }}
                                         </option>
                                     @endforeach
                                 </select>
@@ -254,3 +257,17 @@
         <!--end::Form-->
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            $('#teknisi').select2().on('change', function(e) {
+                @this.set('teknisi', e.target.value);
+            });
+            $('#kategori').select2().on('change', function(e) {
+                @this.set('kategori', e.target.value);
+            });
+        });
+
+    </script>
+@endpush

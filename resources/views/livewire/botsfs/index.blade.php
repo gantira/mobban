@@ -38,7 +38,8 @@
                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label class="btn btn-outline-primary" wire:ignore>
                         <i class="flaticon2-pie-chart"></i>
-                        <input type="radio" name="options" id="option2" checked wire:click="$set('kategori', 'WAITING')" />
+                        <input type="radio" name="options" id="option2" checked
+                            wire:click="$set('kategori', 'WAITING')" />
                         WAITING
                     </label>
                     <label class="btn btn-outline-primary" wire:ignore>
@@ -54,12 +55,25 @@
                 </div>
             </div>
             <div class="card-toolbar">
-                <div class="input-icon input-icon-right">
-                    <input wire:model='search' type="search" class="form-control w-250px" placeholder="Search..." />
-                    <span>
-                        <i class="flaticon2-search-1 icon-md"></i>
-                    </span>
+                <div class="d-flex justify-content-between">
+                    <div class='input-group mr-3' id='kt_daterangepicker_1' wire:ignore.self>
+                        <input wire:model="date" id="date" type='text' class="form-control"
+                            placeholder="Select date range" autocomplete="off" readonly />
+                        <div class="input-group-append">
+                            <span class="input-group-text">
+                                <i class="la la-calendar-check-o"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="input-icon input-icon-right">
+                        <input wire:model='search' type="search" class="form-control w-250px" placeholder="Search..." />
+                        <span>
+                            <i class="flaticon2-search-1 icon-md"></i>
+                        </span>
+                    </div>
                 </div>
+
             </div>
         </div>
         <!--end::Header-->
@@ -67,7 +81,7 @@
         <div class="card-body">
             <!--begin: Datatable-->
             <div class="table-responsive">
-                <table class="table table-bordered table-hover table-sm">
+                <table class="table table-bordered table-hover">
                     <thead class="thead-light text-nowrap text-uppercase">
                         <tr>
                             <th>created at</th>
@@ -92,7 +106,7 @@
                             <th>teknisi</th>
                             <th>layanan</th>
                             <th>wo id</th>
-                            @if ($kategori <> 'ASSIGNED')
+                            @if ($kategori != 'ASSIGNED')
                                 <th>actions</th>
                             @endif
                         </tr>
@@ -161,7 +175,7 @@
                     {{ $botsfs->links() }}
                 </div>
                 <div class="d-flex text-nowrap align-items-center">
-                    <span class="mr-3">Show Page </span>
+                    <span class="mr-3">Show Page</span>
                     <select wire:model='paginate' class="form-control form-control-sm">
                         <option value="5">5</option>
                         <option value="10">10</option>
@@ -230,7 +244,44 @@
             });
         })
 
-        $('.select2').select2();
+        // predefined ranges
+        var start = moment().subtract(29, 'days');
+        var end = moment();
+
+        $('#kt_daterangepicker_1').daterangepicker({
+            buttonClasses: ' btn',
+            applyClass: 'btn-primary',
+            cancelClass: 'btn-secondary',
+            locale: {
+                cancelLabel: 'Clear'
+            },
+
+            startDate: start,
+            endDate: end,
+            ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf(
+                    'month')]
+            }
+        }, function(start, end, label) {
+            $('#kt_daterangepicker_1 .form-control').val(start.format('MM/DD/YYYY') + ' - ' + end.format(
+                'MM/DD/YYYY'));
+            $('#kt_daterangepicker_1').on('apply.daterangepicker', function(e) {
+                // console.log(start.format('MM/DD/YYYY') + ' - ' + end.format(
+                //     'MM/DD/YYYY'))
+                @this.set('date', start.format('MM/DD/YYYY') + ' - ' + end.format(
+                    'MM/DD/YYYY'));
+            });
+
+            $('#kt_daterangepicker_1').on('cancel.daterangepicker', function(ev, picker) {
+                //do something, like clearing an input
+                @this.set('date', '');
+            });
+        });
 
     </script>
     <!--end::Page Scripts-->

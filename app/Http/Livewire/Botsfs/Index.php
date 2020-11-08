@@ -4,6 +4,8 @@ namespace App\Http\Livewire\Botsfs;
 
 use App\Exports\BotSfExport;
 use App\Models\BotSf;
+use App\Models\UserBot;
+use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Maatwebsite\Excel\Facades\Excel;
@@ -13,8 +15,9 @@ class Index extends Component
     use WithPagination;
 
     public $paginate = 5;
-    public $kategori ='WAITING';
+    public $kategori = 'WAITING';
     public $search;
+    public $date;
 
     protected $queryString = ['search'];
     protected $paginationTheme = 'bootstrap';
@@ -22,7 +25,6 @@ class Index extends Component
 
     public function render()
     {
-
         return view('livewire.botsfs.index', [
             'botsfs' => BotSf::when($this->kategori, function ($query) {
                 $query->where('kategori', $this->kategori);
@@ -33,10 +35,13 @@ class Index extends Component
                     ->orWhere('sto',  $this->search)
                     ->orWhere('datel',  $this->search)
                     ->orWhere('kategori',  $this->search)
+                    ->orWhere('teknisi',  $this->search)
                     ->orWhere('nama',  $this->search);
-            })
-                ->orderByDesc('created_at')
-                ->paginate($this->paginate),
+            })->when($this->date, function ($query) {
+                $date = explode(" - ", $this->date);
+                $query->whereBetween('created_at', [Carbon::parse($date[0] . " 00:00:00"), Carbon::parse($date[1] . " 23:59:59")]);
+            })->orderByDesc('created_at')->paginate($this->paginate),
+            'selectUserBots' => UserBot::all(),
         ]);
     }
 
