@@ -12,4 +12,9 @@ class Category extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function botsf()
+    {
+        return $this->hasMany(BotSf::class, 'kategori', 'name');
+    }
 }
