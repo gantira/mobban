@@ -53,8 +53,8 @@
         <div class="card-body">
             <!--begin: Datatable-->
             <div class="table-responsive">
-                <table class="table table-hover table-sm">
-                    <thead class="thead-light text-capitalize">
+                <table class="table table-bordered table-hover">
+                    <thead class="thead-light text-nowrap text-uppercase">
                         <tr>
                             <th>bot</th>
                             <th>user name telegram</th>
