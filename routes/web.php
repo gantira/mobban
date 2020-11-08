@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Livewire\{Dashboards, Botsfs, Botteknisis, Userbots, Categories};
+use App\Http\Livewire\{Dashboards, Users, Botsfs, Botteknisis, Userbots, Categories};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,4 +25,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/botteknisis', Botteknisis\Index::class)->name('botteknisis.index');
     Route::get('/userbots', Userbots\Index::class)->name('userbots.index');
     Route::get('/categories', Categories\Index::class)->name('categories.index');
+    Route::get('/users', Users\Index::class)->name('users.index');
 });
