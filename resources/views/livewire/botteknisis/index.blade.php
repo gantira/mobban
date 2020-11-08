@@ -53,16 +53,16 @@
         <div class="card-body">
             <!--begin: Datatable-->
             <div class="table-responsive">
-                <table class="table table-hover table-sm">
-                    <thead class="thead-light text-nowrap text-capitalize">
+                <table class="table table-bordered table-hover">
+                    <thead class="thead-light text-nowrap text-uppercase">
                         <tr>
                             <th>created at</th>
                             <th>datel</th>
                             <th>sto</th>
                             <th>track id</th>
                             <th>info progress id</th>
-                            <th>date hp 1</th>
-                            <th>kategori hp 2</th>
+                            <th>date</th>
+                            <th>kategori</th>
                             <th>evidence</th>
                             <th>user name telegram</th>
                             <th>actions</th>
@@ -71,12 +71,12 @@
                     <tbody>
                         @forelse ($botteknisis as $item)
                             <tr>
-                                <td>{{ $item->created_at }}</td>
+                                <td>{{ $item->created_at->format('m/d/Y') }}</td>
                                 <td>{{ $item->datel }}</td>
                                 <td>{{ $item->sto }}</td>
                                 <td>{{ $item->track_id }}</td>
                                 <td>{{ $item->info_progress }}</td>
-                                <td>{{ $item->date }}</td>
+                                <td>{{ Carbon\Carbon::parse($item->date)->format('m/d/Y') }}</td>
                                 <td>{{ $item->kategori }}</td>
                                 <td>{{ $item->evidence }}</td>
                                 <td>{{ $item->user_name_telegram }}</td>

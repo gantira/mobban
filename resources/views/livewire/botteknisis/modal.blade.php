@@ -1,4 +1,5 @@
-<div wire:ignore.self class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div wire:ignore.self class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <form wire:submit.prevent='submit'>
             <div class="modal-content">
@@ -74,8 +75,8 @@
                             </div>
                             <div class="form-group">
                                 <label class="text-uppercase text-muted">kategori</label>
-                                <select class="form-control" wire:model.defer="kategori" name="param">
-                                    <option value=""></option>
+                                <select class="form-control" id="teknisi" wire:model="kategori" style="width: 100%">
+                                    <option value="">Choose..</option>
                                     @foreach ($selectCategories as $item)
                                         <option value="{{ $item->name }}">{{ $item->name }}</option>
                                     @endforeach
@@ -118,3 +119,15 @@
         </form>
         <!--end::Form-->
     </div>
+</div>
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            $('#kategori').select2().on('change', function(e) {
+                @this.set('kategori', e.target.value);
+            });
+        });
+
+    </script>
+@endpush
