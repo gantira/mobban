@@ -40,7 +40,7 @@
                 <div class="d-flex flex-column-auto flex-column pt-lg-40 pt-15">
                     <!--begin::Aside header-->
                     <a href="#" class="login-logo text-center pt-lg-25 pb-10">
-                        <img src="{{ asset('assets/media/logos/logo-1.png') }}" class="max-h-70px" alt="" />
+                        <img src="{{ asset('assets/media/logos/logo-letter-100.png') }}" class="max-h-70px" alt="" />
                     </a>
                     <!--end::Aside header-->
                     <!--begin::Aside Title-->
@@ -62,11 +62,11 @@
             <div class="login-content flex-row-fluid d-flex flex-column p-10">
                 <!--begin::Top-->
                 <div class="text-right d-flex justify-content-center">
-                    <div class="top-signin text-right d-flex justify-content-end pt-5 pb-lg-0 pb-10">
+                    {{-- <div class="top-signin text-right d-flex justify-content-end pt-5 pb-lg-0 pb-10">
                         <span class="font-weight-bold text-muted font-size-h4">Having issues?</span>
                         <a href="javascript:;" class="font-weight-bold text-primary font-size-h4 ml-2"
                             id="kt_login_signup">Get Help</a>
-                    </div>
+                    </div> --}}
                 </div>
                 <!--end::Top-->
                 <!--begin::Wrapper-->
@@ -91,7 +91,7 @@
                                 <label class="font-size-h6 font-weight-bolder text-dark">Your Email</label>
                                 <input
                                     class="form-control h-auto py-7 px-6 rounded-lg border-0 @error('email') is-invalid @enderror"
-                                    type="text" name="email" autocomplete="off" />
+                                    type="text" name="email" autocomplete="off" required/>
                                 @error('email')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -108,7 +108,7 @@
                                         Password ?</a> --}}
                                 </div>
                                 <input class="form-control h-auto py-7 px-6 rounded-lg border-0" type="password"
-                                    name="password" autocomplete="off" />
+                                    name="password" autocomplete="off" required/>
                                 @error('password')
                                     <div class="invalid-feedback">
                                         {{ $message }}
