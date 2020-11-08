@@ -41,7 +41,7 @@
             </div>
             <div class="card-toolbar">
                 <div class="input-icon input-icon-right">
-                    <input wire:model='search' type="text" class="form-control w-250px" placeholder="Search..." />
+                    <input wire:model='search' type="search" class="form-control w-250px" placeholder="Search..." />
                     <span>
                         <i class="flaticon2-search-1 icon-md"></i>
                     </span>
@@ -53,7 +53,7 @@
         <div class="card-body">
             <!--begin: Datatable-->
             <div class="table-responsive">
-                <table class="table table-bordered table-hover table-sm">
+                <table class="table table-bordered table-hover">
                     <thead class="thead-light text-nowrap text-uppercase">
                         <tr>
                             <th>kategori</th>
