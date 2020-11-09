@@ -50,7 +50,9 @@
                                     {{ $message }}
                                 </div>
                             @enderror
-
+                            @if ($this->editMode)
+                                <span class="text-danger">note: abaikan kolom password apabila tidak berubah</span>
+                            @endif
                         </div>
                         <div class="form-group">
                             <label class="text-uppercase text-muted">password confirmation</label>
@@ -63,9 +65,23 @@
                                 </div>
                             @enderror
                         </div>
-                        @if ($this->editMode)
-                            <span class="text-danger">note: abaikan kolom password apabila tidak berubah</span>
-                        @endif
+                        <div class="form-group" wire:ignore>
+                            <label class="text-uppercase text-muted">role</label>
+                            <select wire:model.defer="role" id="kt_dual_listbox_1"
+                                class="dual-listbox @error('role') is-invalid @enderror" multiple>
+                                @foreach ($selectRoles as $item)
+                                    <option value="{{ $item->name }}" {{ $this->isSelected($item->name) }}>
+                                        {{ $item->name }} {{ $this->isSelected($item->name) }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('role')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -78,3 +94,60 @@
         <!--end::Form-->
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        // Class definition
+        var KTDualListbox = function() {
+            // Private functions
+            var demo1 = function() {
+                // Dual Listbox
+                var listBox = $('#kt_dual_listbox_1');
+
+                var $this = listBox;
+
+                // get options
+                var options = [];
+                $this.children('option').each(function() {
+                    var value = $(this).val();
+                    var label = $(this).text();
+                    options.push({
+                        text: label,
+                        value: value
+                    });
+                });
+
+                // init dual listbox
+                var dualListBox = new DualListbox($this.get(0), {
+                    addEvent: function(value) {
+                        console.log(value);
+                        @this.set('roles', $('#kt_dual_listbox_1').val());
+                    },
+                    removeEvent: function(value) {
+                        console.log(value);
+                        @this.set('roles', $('#kt_dual_listbox_1').val());
+                    },
+                    availableTitle: 'Available options',
+                    selectedTitle: 'Selected options',
+                    addButtonText: 'Add',
+                    removeButtonText: 'Remove',
+                    addAllButtonText: 'Add All',
+                    removeAllButtonText: 'Remove All',
+                    // options: options,
+                });
+            };
+
+            return {
+                // public functions
+                init: function() {
+                    demo1();
+                },
+            };
+        }();
+
+        jQuery(document).ready(function() {
+            KTDualListbox.init();
+        });
+
+    </script>
+@endpush

@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Users;
 
 use App\Models\User;
 use Livewire\Component;
+use Spatie\Permission\Models\Role;
 
 class Modal extends Component
 {
@@ -12,13 +13,16 @@ class Modal extends Component
     public $email;
     public $password;
     public $password_confirmation;
+    public $roles;
     public $editMode = false;
 
     protected $listeners = ['edit', 'add'];
 
     public function render()
     {
-        return view('livewire.users.modal');
+        return view('livewire.users.modal', [
+            'selectRoles' => Role::all()
+        ]);
     }
 
     public function add()
@@ -45,11 +49,12 @@ class Modal extends Component
                 'password' => 'required|confirmed',
             ]);
 
-            User::create([
+            $user = User::create([
                 'name' => $this->name,
                 'email' => $this->email,
                 'password' => bcrypt($this->password),
             ]);
+            $user->syncRoles($this->roles);
         } else {
             $this->validate([
                 'name' => 'required|string',
@@ -62,10 +67,19 @@ class Modal extends Component
                 'email' => $this->email,
                 'password' => $this->password ? bcrypt($this->password) : $this->user->password,
             ]);
+            $this->user->syncRoles($this->roles);
         }
         $this->emit('reset');
         $this->emit('refresh');
         $this->emit('swal');
         $this->emit('modal');
+    }
+
+    public function isSelected($permissionName)
+    {
+        if (!$this->editMode) {
+            return;
+        }
+        return in_array($permissionName, $this->user->getRoleNames()->toArray()) ? 'selected' : 'null';
     }
 }

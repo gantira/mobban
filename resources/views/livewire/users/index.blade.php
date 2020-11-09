@@ -58,6 +58,7 @@
                         <tr>
                             <th>name</th>
                             <th>email</th>
+                            <th>role</th>
                             <th>actions</th>
                         </tr>
                     </thead>
@@ -66,6 +67,7 @@
                             <tr>
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->email }}</td>
+                                <td>{{ $item->getRoleNames()->join(', ') }}</td>
                                 <td class="text-nowrap">
                                     <a wire:click="$emit('edit', {{ $item }})"
                                         class="btn btn-icon btn-light-info pulse pulse-info">
