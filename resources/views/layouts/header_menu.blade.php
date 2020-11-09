@@ -111,6 +111,11 @@
                     <span class="menu-text">Categories</span>
                 </a>
             </li>
+            <li class="menu-item {{ Request::segment(1) === 'roles' ? 'menu-item-active' : null }}">
+                <a href="{{ route('roles.index') }}" class="menu-link">
+                    <span class="menu-text">Roles</span>
+                </a>
+            </li>
 
             {{-- <li class="menu-item menu-item-submenu menu-item-rel"
                 data-menu-toggle="click" aria-haspopup="true">
