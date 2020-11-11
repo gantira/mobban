@@ -57,7 +57,7 @@
                     </ul>
                 </div>
             </li>
-            <li class="menu-item menu-item-submenu menu-item-rel {{ in_array(Request::segment(1), ['userbots','botteknisis']) ? 'menu-item-active' : null }}" data-menu-toggle="click" aria-haspopup="true">
+            <li class="menu-item menu-item-submenu menu-item-rel {{ in_array(Request::segment(1), ['userbots','users']) ? 'menu-item-active' : null }}" data-menu-toggle="click" aria-haspopup="true">
                 <a href="javascript:;" class="menu-link menu-toggle">
                     <span class="menu-text">Users</span>
                     <span class="menu-desc"></span>
