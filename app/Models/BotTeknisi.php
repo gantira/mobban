@@ -21,6 +21,7 @@ class BotTeknisi extends Model
         'user_name_telegram',
     ];
 
+
     public function getKategoriLabelAttribute()
     {
         if ($this->kategori == 'LIVE') {
@@ -31,7 +32,7 @@ class BotTeknisi extends Model
         return $kategori;
     }
 
-    public function getEvidencePhotoAttribute()
+    public function getEvidencePhotoShowAttribute()
     {
         return env('DOMAIN_EVIDENCE_PHOTO') . $this->evidence_photo;
     }

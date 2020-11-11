@@ -63,7 +63,8 @@
                             <th>info progress id</th>
                             <th>date</th>
                             <th>kategori</th>
-                            <th>evidence</th>
+                            <th>evidence photo</th>
+                            <th>evidence location</th>
                             <th>user name telegram</th>
                             <th>actions</th>
                         </tr>
@@ -71,14 +72,19 @@
                     <tbody>
                         @forelse ($botteknisis as $item)
                             <tr>
-                                <td>{{ $item->created_at->format('m/d/Y') }}</td>
+                                <td>{{ Carbon\Carbon::parse($item->created_at)->format('m/d/Y') }}</td>
                                 <td>{{ $item->datel }}</td>
                                 <td>{{ $item->sto }}</td>
                                 <td>{{ $item->track_id }}</td>
                                 <td>{{ $item->info_progress }}</td>
                                 <td>{{ Carbon\Carbon::parse($item->date)->format('m/d/Y') }}</td>
                                 <td>{{ $item->kategori }}</td>
-                                <td>{{ $item->evidence_photo }}</td>
+                                <td>
+                                    <a href="{{ $item->evidence_photo_show }}" target="_blank">{{ $item->evidence_photo_show }}</a>
+                                </td>
+                                <td>
+                                    <a href="{{ $item->evidence_location }}" target="_blank">{{ $item->evidence_location }}</a>
+                                </td>
                                 <td>{{ $item->user_name_telegram }}</td>
                                 <td class="text-nowrap">
                                     <a wire:click="$emit('edit', {{ $item }})"
