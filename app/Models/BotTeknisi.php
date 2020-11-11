@@ -36,4 +36,11 @@ class BotTeknisi extends Model
     {
         return env('DOMAIN_EVIDENCE_PHOTO') . $this->evidence_photo;
     }
+
+    public function getEvidenceLocationShowAttribute()
+    {
+        $loc = explode('=', $this->evidence_location)[1];
+
+        return "<a href='{$this->evidence_location}' target='_blank'><i class='icon-xl la la-map-marked-alt'></i>{$loc}</a>";
+    }
 }

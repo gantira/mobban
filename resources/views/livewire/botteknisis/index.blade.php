@@ -80,10 +80,11 @@
                                 <td>{{ Carbon\Carbon::parse($item->date)->format('m/d/Y') }}</td>
                                 <td>{{ $item->kategori }}</td>
                                 <td>
-                                    <a href="{{ $item->evidence_photo_show }}" target="_blank">{{ $item->evidence_photo_show }}</a>
+                                    <a href="{{ $item->evidence_photo_show }}"
+                                        target="_blank">{{ $item->evidence_photo_show }} </a>
                                 </td>
                                 <td>
-                                    <a href="{{ $item->evidence_location }}" target="_blank">{{ $item->evidence_location }}</a>
+                                    {!! $item->evidence_location_show !!}
                                 </td>
                                 <td>{{ $item->user_name_telegram }}</td>
                                 <td class="text-nowrap">
