@@ -21,7 +21,8 @@ class CreateBotTeknisisTable extends Migration
             $table->string('info_progress')->nullable();
             $table->date('date')->nullable();
             $table->string('kategori')->nullable();
-            $table->string('evidence')->nullable();
+            $table->string('evidence_photo')->nullable();
+            $table->string('evidence_location')->nullable();
             $table->string('user_name_telegram')->nullable();
             $table->timestamps();
         });

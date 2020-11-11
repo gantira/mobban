@@ -15,6 +15,8 @@ class CreateBotSfsTable extends Migration
     {
         Schema::create('bot_sfs', function (Blueprint $table) {
             $table->id();
+            $table->string('sf_chat_id')->nullable();
+            $table->string('teknisi_chat_id')->nullable();
             $table->string('sto')->nullable();
             $table->string('datel')->nullable();
             $table->string('nama')->nullable();
@@ -36,7 +38,7 @@ class CreateBotSfsTable extends Migration
             $table->string('layanan')->nullable();
             $table->string('wo_id')->nullable();
             $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('updated_at')->useCurrent();
+            $table->timestamp('updated_at')->nullable();;
         });
     }
 

@@ -16,7 +16,8 @@ class BotTeknisi extends Model
         'info_progress',
         'date',
         'kategori',
-        'evidence',
+        'evidence_photo',
+        'evidence_location',
         'user_name_telegram',
     ];
 
@@ -28,5 +29,10 @@ class BotTeknisi extends Model
             $kategori = $this->kategori;
         }
         return $kategori;
+    }
+
+    public function getEvidencePhotoAttribute()
+    {
+        return env('DOMAIN_EVIDENCE_PHOTO') . $this->evidence_photo;
     }
 }

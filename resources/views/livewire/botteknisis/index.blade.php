@@ -78,7 +78,7 @@
                                 <td>{{ $item->info_progress }}</td>
                                 <td>{{ Carbon\Carbon::parse($item->date)->format('m/d/Y') }}</td>
                                 <td>{{ $item->kategori }}</td>
-                                <td>{{ $item->evidence }}</td>
+                                <td>{{ $item->evidence_photo }}</td>
                                 <td>{{ $item->user_name_telegram }}</td>
                                 <td class="text-nowrap">
                                     <a wire:click="$emit('edit', {{ $item }})"
