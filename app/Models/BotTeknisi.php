@@ -29,6 +29,7 @@ class BotTeknisi extends Model
         } else {
             $kategori = $this->kategori;
         }
+        
         return $kategori;
     }
 

@@ -11,7 +11,7 @@ class BotSf extends Model
 
     protected $fillable = [
         'sto',
-        'date',
+        'datel',
         'nama',
         'track_id',
         'no_hp1',
