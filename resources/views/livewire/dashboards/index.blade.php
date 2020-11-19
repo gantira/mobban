@@ -56,8 +56,45 @@
             </div>
             <!--end: Datatable-->
 
+            <div class="row">
+                <div class="col-lg-6">
+                    <!--begin::Card-->
+                    <div class="card card-custom gutter-b">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <h3 class="card-label">Column Chart</h3>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <!--begin::Chart-->
+                            <div id="chart_3"></div>
+                            <!--end::Chart-->
+                        </div>
+                    </div>
+                    <!--end::Card-->
+                </div>
+                <div class="col-lg-6">
+                    <!--begin::Card-->
+                    <div class="card card-custom gutter-b">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <h3 class="card-label">Pie Chart</h3>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <!--begin::Chart-->
+                            <div id="chart_12" class="d-flex justify-content-center"></div>
+                            <!--end::Chart-->
+                        </div>
+                    </div>
+                    <!--end::Card-->
+                </div>
+            </div>
+
         </div>
         <!--end::Body-->
+
+
     </div>
 
 
@@ -73,6 +110,7 @@
 @push('scripts')
     <!--begin::Page Vendors(used by this page)-->
     <script src="{{ asset('assets/plugins/custom/fullcalendar/fullcalendar.bundle.js') }}"></script>
+    <script src="{{ asset('assets/js/pages/features/charts/apexcharts.js') }}"></script>
     <!--end::Page Vendors-->
 
     <!--begin::Page Scripts(used by this page)-->
