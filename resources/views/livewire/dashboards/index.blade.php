@@ -34,7 +34,7 @@
             <!--begin: Datatable-->
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
-                    <thead class="thead-light text-nowrap text-uppercase">
+                    <thead class="thead-light text-nowrap text-uppercase text-center">
                         <tr>
                             <th>DATEL</th>
                             @foreach ($selectCategories as $category)
@@ -42,7 +42,7 @@
                             @endforeach
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="text-center">
                         @foreach ($datels as $key => $value)
                             <tr>
                                 <td>{{ $key }}</td>
