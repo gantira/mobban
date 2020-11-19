@@ -14,7 +14,7 @@ class Index extends Component
 {
     use WithPagination;
 
-    public $paginate = 5;
+    public $paginate = 10;
     public $kategori = 'WAITING';
     public $search;
     public $date;
