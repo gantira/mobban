@@ -11,13 +11,13 @@ class Index extends Component
     public function render()
     {
         foreach (BotSf::groupBy('datel')->get() as $key => $datel) {
-            foreach (Category::all() as $key => $category) {
-                $datels[$datel->datel][] = BotSf::whereDatel($datel->datel)->whereKategori($category->name)->count(); 
+            foreach (Category::order()->visible()->get() as $key => $category) {
+                $datels[$datel->datel][] = BotSf::with('category')->whereDatel($datel->datel)->whereKategori($category->name)->count(); 
             }
         }
 
         return view('livewire.dashboards.index', [
-            'selectCategories' => Category::all(),
+            'selectCategories' => Category::order()->visible()->get(),
             'datels' => $datels,
         ]);
     }

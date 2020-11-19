@@ -37,17 +37,17 @@
                     <thead class="thead-light text-nowrap text-uppercase">
                         <tr>
                             <th>DATEL</th>
-                            @foreach ($selectCategories as $item)
-                                <th>{{ $item->name }}</th>
+                            @foreach ($selectCategories as $category)
+                                <th style="background-color: {{ $category->color }}">{{ $category->name }}</th>
                             @endforeach
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($datels as $key => $item)
+                        @foreach ($datels as $key => $value)
                             <tr>
                                 <td>{{ $key }}</td>
-                                @foreach ($item as $value)
-                                    <td>{{ $value }}</td>
+                                @foreach ($value as $item)
+                                    <td>{{ $item }}</td>
                                 @endforeach
                             </tr>
                         @endforeach

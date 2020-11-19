@@ -14,6 +14,7 @@ class Index extends Component
 
     public $paginate = 5;
     public $kategori;
+
     public $search;
 
     protected $queryString = ['search'];

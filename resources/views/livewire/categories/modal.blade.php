@@ -31,6 +31,38 @@
                                 </div>
                             @enderror
                         </div>
+                        <div class="form-group">
+                            <label class="text-uppercase text-muted">order</label>
+                            <input wire:model.defer="order" type="number"
+                                class="form-control @error('order') is-invalid @enderror" placeholder="" />
+                            @error('order')
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label class="text-uppercase text-muted">color</label>
+                            <input wire:model.defer="color" type="color"
+                                class="form-control @error('color') is-invalid @enderror" placeholder="" />
+                            @error('color')
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label class="text-uppercase text-muted">visible</label>
+                            <select wire:model="visible" class="form-control @error('visible') is-invalid @enderror">
+                                <option value="0">False</option>
+                                <option value="1">True</option>
+                            </select>
+                            @error('visible')
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">

@@ -56,7 +56,10 @@
                 <table class="table table-bordered table-hover">
                     <thead class="thead-light text-nowrap text-uppercase">
                         <tr>
-                            <th>kategori</th>
+                            <th >kategori</th>
+                            <th>order</th>
+                            <th>visible</th>
+                            <th>color</th>
                             <th>actions</th>
                         </tr>
                     </thead>
@@ -64,6 +67,9 @@
                         @forelse ($categories as $item)
                             <tr>
                                 <td>{{ $item->name }}</td>
+                                <td>{{ $item->order }}</td>
+                                <td>{{ $item->visible }}</td>
+                                <td>{{ $item->color }}</td>
                                 <td class="text-nowrap">
                                     <a wire:click="$emit('edit', {{ $item }})"
                                         class="btn btn-icon btn-light-info pulse pulse-info">

@@ -11,10 +11,23 @@ class Category extends Model
 
     protected $fillable = [
         'name',
+        'order',
+        'visible',
+        'color',
     ];
 
     public function botsf()
     {
         return $this->hasMany(BotSf::class, 'kategori', 'name');
+    }
+
+    public function scopeOrder($query)
+    {
+        return $query->orderBy('order');
+    }
+
+    public function scopeVisible($query)
+    {
+        return $query->whereVisible(true);
     }
 }

@@ -9,6 +9,9 @@ class Modal extends Component
 {
     public $name;
     public $category;
+    public $order;
+    public $visible;
+    public $color;
     public $editMode = false;
 
     protected $listeners = ['edit', 'add'];
@@ -38,12 +41,18 @@ class Modal extends Component
         if (!$this->editMode) {
             $validateData = $this->validate([
                 'name' => 'required',
+                'order' => 'required',
+                'visible' => 'required',
+                'color' => 'nullable',
             ]);
 
             Category::create($validateData);
         } else {
             $validateData = $this->validate([
                 'name' => 'required',
+                'order' => 'required',
+                'visible' => 'required',
+                'color' => 'nullable',
             ]);
 
             $this->category->update($validateData);
