@@ -15,7 +15,7 @@ class Index extends Component
     use WithPagination;
 
     public $paginate = 10;
-    public $kategori = ['WAITING'];
+    public $kategori = 'WAITING';
     public $datel;
     public $sto;
     public $search;
