@@ -33,7 +33,7 @@
         <div class="card-header flex-wrap border-0 pt-6 pb-0">
             <div class="card-toolbar">
                 <div wire:ignore class="mr-2">
-                    <select wire:model="datel" class="form-control selectpicker" multiple="multiple" placeholder="Datel">
+                    <select wire:model="datel" class="form-control selectpicker datel" multiple="multiple" placeholder="Datel">
                         @foreach ($selectDatels as $item)
                             <option value="{{ $item->datel }}">{{ $item->datel }}</option>
                         @endforeach
@@ -41,7 +41,7 @@
                 </div>
              
                 <div wire:ignore>
-                    <select wire:model="sto" class="form-control selectpicker" multiple="multiple" placeholder="Datel">
+                    <select wire:model="sto" class="form-control selectpicker sto" multiple="multiple" placeholder="Datel">
                         @foreach ($selectStos as $item)
                             <option value="{{ $item->sto }}">{{ $item->sto }}</option>
                         @endforeach
@@ -138,4 +138,9 @@
     <!--begin::Page Scripts(used by this page)-->
     <script src="{{ asset('assets/js/pages/widgets.js') }}"></script>
     <!--end::Page Scripts-->
+
+    <script>
+        $('.datel').selectpicker({noneSelectedText: 'DATEL'}); 
+        $('.sto').selectpicker({noneSelectedText: 'STO'}); 
+    </script>
 @endpush
