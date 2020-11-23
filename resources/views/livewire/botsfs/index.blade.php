@@ -161,7 +161,7 @@
                                 <td>{{ $item->nama }}</td>
                                 <td>{{ $item->no_hp1 }}</td>
                                 <td>{{ $item->no_hp2 }}</td>
-                                <td>{{ $item->alamat }}</td>
+                                <td style="max-width: 500px;">{{ $item->alamat }}</td>
                                 <td>{{ $item->kode_sales }}</td>
                                 <td>{{ $item->layanan }}</td>
                                 <td>{{ $item->paket }}</td>
