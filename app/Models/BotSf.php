@@ -10,6 +10,7 @@ class BotSf extends Model
     use HasFactory;
 
     protected $fillable = [
+        'sf_chat_id',
         'sto',
         'datel',
         'nama',
@@ -30,6 +31,8 @@ class BotSf extends Model
         'teknisi',
         'layanan',
         'wo_id',
+        'crew',
+        'ncx_id',
     ];
 
     public function getKategoriLabelAttribute()

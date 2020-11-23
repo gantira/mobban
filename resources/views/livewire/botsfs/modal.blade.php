@@ -68,9 +68,9 @@
                             </div>
                             <div class="form-group">
                                 <label class="text-uppercase text-muted">no hp 1</label>
-                                <input wire:model.defer="no_hp_1" type="number" @if ($editMode) readonly @endif
-                                class="form-control @error('no_hp_1') is-invalid @enderror " placeholder="" />
-                                @error('no_hp_1')
+                                <input wire:model.defer="no_hp1" type="number" @if ($editMode) readonly @endif
+                                class="form-control @error('no_hp1') is-invalid @enderror " placeholder="" />
+                                @error('no_hp1')
                                     <div class="text-danger">
                                         {{ $message }}
                                     </div>
@@ -78,9 +78,9 @@
                             </div>
                             <div class="form-group">
                                 <label class="text-uppercase text-muted">no hp 2</label>
-                                <input wire:model.defer="no_hp_2" type="number" @if ($editMode) readonly @endif
-                                class="form-control @error('no_hp_2') is-invalid @enderror " placeholder="" />
-                                @error('no_hp_2')
+                                <input wire:model.defer="no_hp2" type="number" @if ($editMode) readonly @endif
+                                class="form-control @error('no_hp2') is-invalid @enderror " placeholder="" />
+                                @error('no_hp2')
                                     <div class="text-danger">
                                         {{ $message }}
                                     </div>
@@ -108,7 +108,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="text-uppercase text-muted">kode sales</label>
-                                <input wire:model.defer="kode_sales" type="text" @if ($editMode) readonly @endif
+                                <input wire:model.defer="kode_sales" type="text" @if ($editMode) @endif
                                 class="form-control @error('kode_sales') is-invalid @enderror " placeholder="" />
                                 @error('kode_sales')
                                     <div class="text-danger">
@@ -118,10 +118,21 @@
                             </div>
                             <div class="form-group">
                                 <label class="text-uppercase text-muted">user name telegram</label>
-                                <input wire:model.defer="user_name_telegram" type="text" @if ($editMode) readonly @endif
+                                <input wire:model.defer="user_name_telegram" type="text" @if ($editMode)  @endif
                                 class="form-control @error('user_name_telegram') is-invalid @enderror "
                                 placeholder="" />
                                 @error('user_name_telegram')
+                                    <div class="text-danger">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label class="text-uppercase text-muted">crew</label>
+                                <input wire:model.defer="crew" type="text" @if ($editMode) readonly @endif
+                                class="form-control @error('crew') is-invalid @enderror "
+                                placeholder="" />
+                                @error('crew')
                                     <div class="text-danger">
                                         {{ $message }}
                                     </div>
@@ -176,7 +187,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="text-uppercase text-muted">nd internet</label>
-                                <input wire:model.defer="nd_internet" type="text" @if ($editMode) readonly @endif
+                                <input wire:model.defer="nd_internet" type="text" @if ($editMode)  @endif
                                 class="form-control @error('nd_internet') is-invalid @enderror " placeholder="" />
                                 @error('nd_internet')
                                     <div class="text-danger">
@@ -195,7 +206,7 @@
                                 @enderror
                             </div>
                             <div class="form-group" wire:ignore>
-                                <label class="text-uppercase text-muted">teknisi {{ $teknisi }}</label>
+                                <label class="text-uppercase text-muted">teknisi assigned</label>
 
                                 <select class="form-control" id="teknisi" wire:model="teknisi" style="width: 100%">
                                     <option value="">Choose..</option>
@@ -213,7 +224,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label class="text-uppercase text-muted">user name telegram teknisi</label>
+                                <label class="text-uppercase text-muted">telegram teknisi</label>
                                 <input wire:model.defer="user_name_telegram_teknisi" type="text"
                                     class="form-control @error('user_name_telegram_teknisi') is-invalid @enderror "
                                     placeholder="" />
@@ -238,6 +249,16 @@
                                 <input wire:model.defer="wo_id" type="text"
                                     class="form-control @error('wo_id') is-invalid @enderror " placeholder="" />
                                 @error('wo_id')
+                                    <div class="text-danger">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label class="text-uppercase text-muted">ncx id</label>
+                                <input wire:model.defer="ncx_id" type="text"
+                                    class="form-control @error('ncx_id') is-invalid @enderror " placeholder="" />
+                                @error('ncx_id')
                                     <div class="text-danger">
                                         {{ $message }}
                                     </div>

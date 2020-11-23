@@ -56,7 +56,7 @@
             </div>
             <div class="card-toolbar">
                 <div class="d-flex justify-content-between">
-                    <div class='input-group mr-3' id='kt_daterangepicker_1' wire:ignore.self>
+                    <div class='input-group mr-2' id='kt_daterangepicker_1' wire:ignore.self>
                         <input wire:model="date" id="date" type='text' class="form-control"
                             placeholder="Select date range" autocomplete="off" readonly />
                         <div class="input-group-append">
@@ -65,13 +65,22 @@
                             </span>
                         </div>
                     </div>
+                </div>
 
-                    <div class="input-icon input-icon-right">
-                        <input wire:model='search' type="search" class="form-control w-250px" placeholder="Search..." />
-                        <span>
-                            <i class="flaticon2-search-1 icon-md"></i>
-                        </span>
-                    </div>
+                <div wire:ignore class="mr-2">
+                    <select wire:model="datel" class="form-control selectpicker" multiple="multiple" placeholder="Datel">
+                        @foreach ($selectDatels as $item)
+                            <option value="{{ $item->datel }}">{{ $item->datel }}</option>
+                        @endforeach
+                    </select>
+                </div>
+             
+                <div wire:ignore>
+                    <select wire:model="sto" class="form-control selectpicker" multiple="multiple" placeholder="Datel">
+                        @foreach ($selectStos as $item)
+                            <option value="{{ $item->sto }}">{{ $item->sto }}</option>
+                        @endforeach
+                    </select>
                 </div>
 
             </div>
@@ -86,6 +95,7 @@
                         <tr>
                             <th>created at</th>
                             <th>last updated</th>
+                            <th>sf_chat_id</th>
                             <th>sto</th>
                             <th>datel</th>
                             <th>nama</th>
@@ -96,16 +106,18 @@
                             <th>odp</th>
                             <th>kode sales</th>
                             <th>user name telegram</th>
-                            <th>user name telegram teknisi</th>
+                            <th>teknisi update</th>
                             <th>info progress</th>
                             <th>kategori</th>
                             <th>paket</th>
                             <th>sc id</th>
                             <th>nd internet</th>
                             <th>nd telp</th>
-                            <th>teknisi</th>
+                            <th>teknisi assigned</th>
                             <th>layanan</th>
                             <th>wo id</th>
+                            <th>crew</th>
+                            <th>ncx id</th>
                             @if ($kategori != 'ASSIGNED')
                                 <th>actions</th>
                             @endif
@@ -116,6 +128,7 @@
                             <tr>
                                 <td>{{ $item->created_at->format('d/m/Y') }}</td>
                                 <td>{{ $item->updated_at->format('d/m/Y') }}</td>
+                                <td>{{ $item->sf_chat_id }}</td>
                                 <td>{{ $item->sto }}</td>
                                 <td>{{ $item->datel }}</td>
                                 <td>{{ $item->nama }}</td>
@@ -136,6 +149,8 @@
                                 <td>{{ $item->teknisi }}</td>
                                 <td>{{ $item->layanan }}</td>
                                 <td>{{ $item->wo_id }}</td>
+                                <td>{{ $item->crew }}</td>
+                                <td>{{ $item->ncx_id }}</td>
 
                                 <td class="text-nowrap">
                                     @if ($kategori == 'WAITING')

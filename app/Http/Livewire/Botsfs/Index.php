@@ -8,7 +8,6 @@ use App\Models\UserBot;
 use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Maatwebsite\Excel\Facades\Excel;
 
 class Index extends Component
 {
@@ -16,38 +15,37 @@ class Index extends Component
 
     public $paginate = 10;
     public $kategori = 'WAITING';
-    public $search;
+    public $datel;
+    public $sto;
     public $date;
 
-    protected $queryString = ['search'];
     protected $paginationTheme = 'bootstrap';
     protected $listeners = ['refresh' => '$refresh', 'destroy', 'export'];
 
     public function render()
     {
+        $botsf = BotSf::when($this->kategori, function ($query) {
+            $query->where('kategori', $this->kategori);
+        })->when($this->datel, function ($query) {
+            $query->whereIn('datel', $this->datel);
+        })->when($this->sto, function ($query) {
+            $query->whereIn('sto', $this->sto);
+        })->when($this->date, function ($query) {
+            $date = explode(" - ", $this->date);
+            $query->whereBetween('updated_at', [Carbon::parse($date[0] . " 00:00:00"), Carbon::parse($date[1] . " 23:59:59")]);
+        })->orderByDesc('updated_at')->paginate($this->paginate);
+
         return view('livewire.botsfs.index', [
-            'botsfs' => BotSf::when($this->kategori, function ($query) {
-                $query->where('kategori', $this->kategori);
-            })->when($this->search, function ($query) {
-                $query
-                    ->orWhere('track_id',  $this->search)
-                    ->orWhere('odp',  $this->search)
-                    ->orWhere('sto',  $this->search)
-                    ->orWhere('datel',  $this->search)
-                    ->orWhere('kategori',  $this->search)
-                    ->orWhere('teknisi',  $this->search)
-                    ->orWhere('nama',  $this->search);
-            })->when($this->date, function ($query) {
-                $date = explode(" - ", $this->date);
-                $query->whereBetween('created_at', [Carbon::parse($date[0] . " 00:00:00"), Carbon::parse($date[1] . " 23:59:59")]);
-            })->orderByDesc('created_at')->paginate($this->paginate),
+            'botsfs' => $botsf,
             'selectUserBots' => UserBot::all(),
+            'selectDatels' => BotSf::groupBy('datel')->get(),
+            'selectStos' => BotSf::groupBy('sto')->get(),
         ]);
     }
 
     public function export()
     {
-        return Excel::download(new BotSfExport, 'bot sf.xlsx');
+        return (new BotSfExport)->filter($this->kategori, $this->datel, $this->sto, $this->date)->download('botsfs.xlsx');
     }
 
     public function showConfirmation($id)

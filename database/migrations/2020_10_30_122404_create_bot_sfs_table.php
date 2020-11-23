@@ -38,7 +38,7 @@ class CreateBotSfsTable extends Migration
             $table->string('layanan')->nullable();
             $table->string('wo_id')->nullable();
             $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('updated_at')->nullable();;
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

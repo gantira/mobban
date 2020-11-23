@@ -29,6 +29,28 @@
     <!--begin::Dashboard-->
     <!--begin::Row-->
     <div class="card card-custom">
+        <!--begin::Header-->
+        <div class="card-header flex-wrap border-0 pt-6 pb-0">
+            <div class="card-toolbar">
+                <div wire:ignore class="mr-2">
+                    <select wire:model="datel" class="form-control selectpicker" multiple="multiple" placeholder="Datel">
+                        @foreach ($selectDatels as $item)
+                            <option value="{{ $item->datel }}">{{ $item->datel }}</option>
+                        @endforeach
+                    </select>
+                </div>
+             
+                <div wire:ignore>
+                    <select wire:model="sto" class="form-control selectpicker" multiple="multiple" placeholder="Datel">
+                        @foreach ($selectStos as $item)
+                            <option value="{{ $item->sto }}">{{ $item->sto }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+            </div>
+        </div>
+        <!--end::Header-->
         <!--begin::Body-->
         <div class="card-body">
             <!--begin: Datatable-->
@@ -59,7 +81,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <!--begin::Card-->
-                    <div class="card card-custom gutter-b">
+                    <div class="card card-custom gutter-b" wire:ignore>
                         <div class="card-header">
                             <div class="card-title">
                                 <h3 class="card-label">Column Chart</h3>
@@ -75,7 +97,7 @@
                 </div>
                 <div class="col-lg-6">
                     <!--begin::Card-->
-                    <div class="card card-custom gutter-b">
+                    <div class="card card-custom gutter-b" wire:ignore>
                         <div class="card-header">
                             <div class="card-title">
                                 <h3 class="card-label">Pie Chart</h3>

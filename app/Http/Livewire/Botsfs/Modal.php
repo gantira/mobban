@@ -14,8 +14,8 @@ class Modal extends Component
     public $datel;
     public $nama;
     public $track_id;
-    public $no_hp_1;
-    public $no_hp_2;
+    public $no_hp1;
+    public $no_hp2;
     public $alamat;
     public $odp;
     public $kode_sales;
@@ -30,6 +30,8 @@ class Modal extends Component
     public $teknisi;
     public $layanan;
     public $wo_id;
+    public $crew;
+    public $ncx_id;
     public $editMode = false;
 
     protected $listeners = ['edit', 'add'];
@@ -65,8 +67,8 @@ class Modal extends Component
                 'datel' => 'nullable',
                 'nama' => 'nullable',
                 'track_id' => 'nullable|unique:bot_sfs',
-                'no_hp_1' => 'nullable',
-                'no_hp_2' => 'nullable',
+                'no_hp1' => 'nullable',
+                'no_hp2' => 'nullable',
                 'alamat' => 'nullable',
                 'odp' => 'nullable',
                 'kode_sales' => 'nullable',
@@ -90,8 +92,8 @@ class Modal extends Component
                 'datel' => 'nullable',
                 'nama' => 'nullable',
                 'track_id' => 'nullable',
-                'no_hp_1' => 'nullable',
-                'no_hp_2' => 'nullable',
+                'no_hp1' => 'nullable',
+                'no_hp2' => 'nullable',
                 'alamat' => 'nullable',
                 'odp' => 'nullable',
                 'kode_sales' => 'nullable',
