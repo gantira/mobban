@@ -55,11 +55,14 @@
                 </div>
             </div>
 
-            <div class="input-icon input-icon-right" wire:ignore>
-                <input wire:model='search' type="search" class="form-control w-450px" placeholder="Search Track ID/SC ID/NCX ID/ND INTERNET/ND TELP/NAMA" />
-                <span>
-                    <i class="flaticon2-search-1 icon-md"></i>
-                </span>
+            <div class="{{ $this->kategori == '' ? '' : 'd-none' }}">
+                <div class="input-icon input-icon-right" wire:ignore>
+                    <input wire:model="search" type="search" class="form-control w-450px"
+                        placeholder="Search Track ID/SC ID/NCX ID/ND INTERNET/ND TELP/NAMA" />
+                    <span>
+                        <i class="flaticon2-search-1 icon-md"></i>
+                    </span>
+                </div>
             </div>
 
 
@@ -94,7 +97,8 @@
                 </div>
 
                 <div wire:ignore class="mr-2">
-                    <select wire:model="kategori" class="form-control selectpicker" multiple="multiple" placeholder="Datel">
+                    <select wire:model="kategori" class="form-control selectpicker" multiple="multiple"
+                        placeholder="Datel">
                         @foreach ($selectCategories as $item)
                             <option value="{{ $item->name }}">{{ $item->name }}</option>
                         @endforeach
