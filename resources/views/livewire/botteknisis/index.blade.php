@@ -1,11 +1,11 @@
-@section('title', 'Bot SF')
+@section('title', 'PROGRESS TEKNISI')
 
 @section('info')
     <div class="d-flex align-items-center flex-wrap mr-1">
         <!--begin::Heading-->
         <div class="d-flex flex-column">
             <!--begin::Title-->
-            <h2 class="text-white font-weight-bold my-2 mr-5">Bot Teknisi</h2>
+            <h2 class="text-white font-weight-bold my-2 mr-5">PROGRESS TEKNISI</h2>
             <!--end::Title-->
             <!--begin::Breadcrumb-->
             <div class="d-flex align-items-center font-weight-bold my-2">
@@ -20,7 +20,7 @@
                 <!--end::Item-->
                 <!--begin::Item-->
                 <span class="label label-dot label-sm bg-white opacity-75 mx-3"></span>
-                <a href="#" class="text-white text-hover-white opacity-75 hover-opacity-100" disabled>Bot Teknisi</a>
+                <a href="#" class="text-white text-hover-white opacity-75 hover-opacity-100" disabled>PROGRESS TEKNISI</a>
                 <!--end::Item-->
             </div>
             <!--end::Breadcrumb-->
@@ -60,13 +60,12 @@
                             <th>datel</th>
                             <th>sto</th>
                             <th>track id</th>
-                            <th>info progress id</th>
-                            <th>date</th>
+                            <th>info progress</th>
                             <th>kategori</th>
                             <th>evidence photo</th>
                             <th>evidence location</th>
-                            <th>user name telegram</th>
-                            <th>actions</th>
+                            <th>teknisi update</th>
+                            <!-- <th>actions</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -77,7 +76,6 @@
                                 <td>{{ $item->sto }}</td>
                                 <td>{{ $item->track_id }}</td>
                                 <td>{{ $item->info_progress }}</td>
-                                <td>{{ Carbon\Carbon::parse($item->date)->format('m/d/Y') }}</td>
                                 <td>{{ $item->kategori }}</td>
                                 <td>
                                     <a href="{{ $item->evidence_photo_show }}">
@@ -88,7 +86,7 @@
                                     {!! $item->evidence_location_show !!}
                                 </td>
                                 <td>{{ $item->user_name_telegram }}</td>
-                                <td class="text-nowrap">
+                                <!-- <td class="text-nowrap">
                                     <a wire:click="$emit('edit', {{ $item }})"
                                         class="btn btn-icon btn-light-info pulse pulse-info">
                                         <i class="flaticon-edit"></i>
@@ -100,7 +98,7 @@
                                         <i class="flaticon2-trash"></i>
                                         <span class="pulse-ring"></span>
                                     </a>
-                                </td>
+                                </td> -->
                             </tr>
                         @empty
                             <tr class="text-center">

@@ -10,7 +10,7 @@
             </li>
             <li class="menu-item menu-item-submenu menu-item-rel {{ in_array(Request::segment(1), ['botsfs','botteknisis']) ? 'menu-item-active' : null }}" data-menu-toggle="click" aria-haspopup="true">
                 <a href="javascript:;" class="menu-link menu-toggle">
-                    <span class="menu-text">Bot</span>
+                    <span class="menu-text">Data Order</span>
                     <span class="menu-desc"></span>
                     <i class="menu-arrow"></i>
                 </a>
@@ -29,7 +29,7 @@
                                         </g>
                                     </svg>
                                 </span>
-                                <span class="menu-text">Bot SF</span>
+                                <span class="menu-text">WO WBB</span>
                                 {{-- <span class="menu-label">
                                     <span class="label label-danger label-inline">new</span>
                                 </span> --}}
@@ -48,7 +48,7 @@
                                         </g>
                                     </svg>
                                 </span>
-                                <span class="menu-text">Bot Teknisi</span>
+                                <span class="menu-text">PROGRESS TEKNISI</span>
                                 {{-- <span class="menu-label">
                                     <span class="label label-danger label-inline">new</span>
                                 </span> --}}
