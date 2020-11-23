@@ -321,9 +321,9 @@
             });
         });
 
-        $('.datel').selectpicker({noneSelectedText: 'Datel'}); 
-        $('.sto').selectpicker({noneSelectedText: 'Sto'}); 
-        $('.kategori').selectpicker({noneSelectedText: 'Kategori'}); 
+        $('.datel').selectpicker({noneSelectedText: 'DATEL'}); 
+        $('.sto').selectpicker({noneSelectedText: 'STO'}); 
+        $('.kategori').selectpicker({noneSelectedText: 'KATEGORI'}); 
 
     </script>
     <!--end::Page Scripts-->
