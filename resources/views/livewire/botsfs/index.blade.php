@@ -93,6 +93,14 @@
                     </select>
                 </div>
 
+                <div wire:ignore class="mr-2">
+                    <select wire:model="kategori" class="form-control selectpicker" multiple="multiple" placeholder="Datel">
+                        @foreach ($selectCategories as $item)
+                            <option value="{{ $item->name }}">{{ $item->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
 
 
             </div>

@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Botsfs;
 
 use App\Exports\BotSfExport;
 use App\Models\BotSf;
+use App\Models\Category;
 use App\Models\UserBot;
 use Carbon\Carbon;
 use Livewire\Component;
@@ -14,7 +15,7 @@ class Index extends Component
     use WithPagination;
 
     public $paginate = 10;
-    public $kategori = 'WAITING';
+    public $kategori = ['WAITING'];
     public $datel;
     public $sto;
     public $search;
@@ -35,11 +36,14 @@ class Index extends Component
         })->when($this->date, function ($query) {
             $date = explode(" - ", $this->date);
             $query->whereBetween('updated_at', [Carbon::parse($date[0] . " 00:00:00"), Carbon::parse($date[1] . " 23:59:59")]);
+        })->when($this->kategori, function ($query) {
+            $query->where('kategori', $this->kategori);
         })->when($this->search, function ($query) {
             $query
                 ->orWhere('track_id',  $this->search)
-                ->orWhere('odp',  $this->search)
-                ->orWhere('kategori',  $this->search)
+                ->orWhere('sc_id',  $this->search)
+                ->orWhere('nd_internet',  $this->search)
+                ->orWhere('ncx_id',  $this->search)
                 ->orWhere('nama',  $this->search);
         })->orderByDesc('updated_at')->paginate($this->paginate);
 
@@ -48,6 +52,7 @@ class Index extends Component
             'selectUserBots' => UserBot::all(),
             'selectDatels' => BotSf::groupBy('datel')->get(),
             'selectStos' => BotSf::groupBy('sto')->get(),
+            'selectCategories' => Category::order()->visible()->get(),
         ]);
     }
 
