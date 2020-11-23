@@ -95,29 +95,28 @@
                         <tr>
                             <th>created at</th>
                             <th>last updated</th>
-                            <th>sf_chat_id</th>
-                            <th>sto</th>
                             <th>datel</th>
-                            <th>nama</th>
+                            <th>sto</th>
                             <th>track id</th>
+                            <th>sc id</th>
+                            <th>ncx id</th>
+                            <th>nd internet</th>
+                            <th>nd telp</th>
+                            <th>nama</th>
                             <th>no hp 1</th>
                             <th>no hp 2</th>
                             <th>alamat</th>
-                            <th>odp</th>
                             <th>kode sales</th>
-                            <th>user name telegram</th>
-                            <th>teknisi update</th>
-                            <th>info progress</th>
-                            <th>kategori</th>
-                            <th>paket</th>
-                            <th>sc id</th>
-                            <th>nd internet</th>
-                            <th>nd telp</th>
-                            <th>teknisi assigned</th>
                             <th>layanan</th>
+                            <th>paket</th>
                             <th>wo id</th>
+                            <th>odp</th>
                             <th>crew</th>
-                            <th>ncx id</th>
+                            <th>user name telegram</th>
+                            <th>teknisi assigned</th>
+                            <th>teknisi update</th>
+                            <th>kategori</th>
+                            <th>info progress</th>
                             @if ($kategori != 'ASSIGNED')
                                 <th>actions</th>
                             @endif
@@ -128,29 +127,28 @@
                             <tr>
                                 <td>{{ $item->created_at->format('d/m/Y') }}</td>
                                 <td>{{ $item->updated_at->format('d/m/Y') }}</td>
-                                <td>{{ $item->sf_chat_id }}</td>
-                                <td>{{ $item->sto }}</td>
                                 <td>{{ $item->datel }}</td>
-                                <td>{{ $item->nama }}</td>
+                                <td>{{ $item->sto }}</td>
                                 <td>{{ $item->track_id }}</td>
+                                <td>{{ $item->sc_id }}</td>
+                                <td>{{ $item->ncx_id }}</td>
+                                <td>{{ $item->nd_internet }}</td>
+                                <td>{{ $item->nd_telp }}</td>
+                                <td>{{ $item->nama }}</td>
                                 <td>{{ $item->no_hp1 }}</td>
                                 <td>{{ $item->no_hp2 }}</td>
                                 <td>{{ $item->alamat }}</td>
-                                <td>{{ $item->odp }}</td>
                                 <td>{{ $item->kode_sales }}</td>
+                                <td>{{ $item->layanan }}</td>
+                                <td>{{ $item->paket }}</td>
+                                <td>{{ $item->wo_id }}</td>
+                                <td>{{ $item->odp }}</td>
+                                <td>{{ $item->crew }}</td>
                                 <td>{{ $item->user_name_telegram }}</td>
                                 <td>{{ $item->user_name_telegram_teknisi }}</td>
-                                <td>{{ $item->info_progress }}</td>
                                 <td>{!! $item->kategori_label !!}</td>
-                                <td>{{ $item->paket }}</td>
-                                <td>{{ $item->sc_id }}</td>
-                                <td>{{ $item->nd_internet }}</td>
-                                <td>{{ $item->nd_telp }}</td>
+                                <td>{{ $item->info_progress }}</td>
                                 <td>{{ $item->teknisi }}</td>
-                                <td>{{ $item->layanan }}</td>
-                                <td>{{ $item->wo_id }}</td>
-                                <td>{{ $item->crew }}</td>
-                                <td>{{ $item->ncx_id }}</td>
 
                                 <td class="text-nowrap">
                                     @if ($kategori == 'WAITING')
