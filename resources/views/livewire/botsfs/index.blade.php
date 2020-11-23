@@ -145,10 +145,11 @@
                                 <td>{{ $item->odp }}</td>
                                 <td>{{ $item->crew }}</td>
                                 <td>{{ $item->user_name_telegram }}</td>
+                                <td>{{ $item->teknisi }}</td>
                                 <td>{{ $item->user_name_telegram_teknisi }}</td>
                                 <td>{!! $item->kategori_label !!}</td>
                                 <td>{{ $item->info_progress }}</td>
-                                <td>{{ $item->teknisi }}</td>
+                                
 
                                 <td class="text-nowrap">
                                     @if ($kategori == 'WAITING')
