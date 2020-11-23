@@ -17,8 +17,10 @@ class Index extends Component
     public $kategori = 'WAITING';
     public $datel;
     public $sto;
+    public $search;
     public $date;
 
+    protected $queryString = ['search'];
     protected $paginationTheme = 'bootstrap';
     protected $listeners = ['refresh' => '$refresh', 'destroy', 'export'];
 
@@ -33,6 +35,12 @@ class Index extends Component
         })->when($this->date, function ($query) {
             $date = explode(" - ", $this->date);
             $query->whereBetween('updated_at', [Carbon::parse($date[0] . " 00:00:00"), Carbon::parse($date[1] . " 23:59:59")]);
+        })->when($this->search, function ($query) {
+            $query
+                ->orWhere('track_id',  $this->search)
+                ->orWhere('odp',  $this->search)
+                ->orWhere('kategori',  $this->search)
+                ->orWhere('nama',  $this->search);
         })->orderByDesc('updated_at')->paginate($this->paginate);
 
         return view('livewire.botsfs.index', [

@@ -54,6 +54,17 @@
                     </label>
                 </div>
             </div>
+
+            @if ($this->kategori == '')
+                <div class="input-icon input-icon-right">
+                    <input wire:model='search' type="search" class="form-control w-250px" placeholder="Search..." />
+                    <span>
+                        <i class="flaticon2-search-1 icon-md"></i>
+                    </span>
+                </div>
+            @endif
+
+
             <div class="card-toolbar">
                 <div class="d-flex justify-content-between">
                     <div class='input-group mr-2' id='kt_daterangepicker_1' wire:ignore.self>
@@ -68,20 +79,23 @@
                 </div>
 
                 <div wire:ignore class="mr-2">
-                    <select wire:model="datel" class="form-control selectpicker" multiple="multiple" placeholder="Datel">
+                    <select wire:model="datel" class="form-control selectpicker" multiple="multiple"
+                        placeholder="Datel">
                         @foreach ($selectDatels as $item)
                             <option value="{{ $item->datel }}">{{ $item->datel }}</option>
                         @endforeach
                     </select>
                 </div>
-             
-                <div wire:ignore>
+
+                <div wire:ignore class="mr-2">
                     <select wire:model="sto" class="form-control selectpicker" multiple="multiple" placeholder="Datel">
                         @foreach ($selectStos as $item)
                             <option value="{{ $item->sto }}">{{ $item->sto }}</option>
                         @endforeach
                     </select>
                 </div>
+
+
 
             </div>
         </div>
