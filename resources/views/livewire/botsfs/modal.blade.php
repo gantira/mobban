@@ -129,7 +129,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="text-uppercase text-muted">crew</label>
-                                <input wire:model.defer="crew" type="text" @if ($editMode) readonly @endif
+                                <input wire:model.defer="crew" type="text"
                                 class="form-control @error('crew') is-invalid @enderror "
                                 placeholder="" />
                                 @error('crew')

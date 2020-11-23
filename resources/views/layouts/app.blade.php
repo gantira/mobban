@@ -149,9 +149,6 @@
 			</span>
 		</div>
 		<!--end::Scrolltop-->
-		<!--begin::Sticky Toolbar-->
-		@include('layouts.sticky_toolbar')
-		<!--end::Sticky Toolbar-->
 		<!--begin::Demo Panel-->
 		@include('layouts.demo_panel')
 		<!--end::Demo Panel-->
