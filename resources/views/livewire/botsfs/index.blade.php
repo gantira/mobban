@@ -56,7 +56,7 @@
             </div>
 
             <div class="input-icon input-icon-right" wire:ignore>
-                <input wire:model='search' type="search" class="form-control w-250px" placeholder="Search..." />
+                <input wire:model='search' type="search" class="form-control w-450px" placeholder="Search Track ID/SC ID/NCX ID/ND INTERNET/ND TELP/NAMA" />
                 <span>
                     <i class="flaticon2-search-1 icon-md"></i>
                 </span>
