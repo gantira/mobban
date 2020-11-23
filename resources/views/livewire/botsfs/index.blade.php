@@ -55,14 +55,12 @@
                 </div>
             </div>
 
-            @if ($this->kategori == '')
-                <div class="input-icon input-icon-right">
-                    <input wire:model='search' type="search" class="form-control w-250px" placeholder="Search..." />
-                    <span>
-                        <i class="flaticon2-search-1 icon-md"></i>
-                    </span>
-                </div>
-            @endif
+            <div class="input-icon input-icon-right" wire:ignore>
+                <input wire:model='search' type="search" class="form-control w-250px" placeholder="Search..." />
+                <span>
+                    <i class="flaticon2-search-1 icon-md"></i>
+                </span>
+            </div>
 
 
             <div class="card-toolbar">
@@ -163,7 +161,7 @@
                                 <td>{{ $item->user_name_telegram_teknisi }}</td>
                                 <td>{!! $item->kategori_label !!}</td>
                                 <td>{{ $item->info_progress }}</td>
-                                
+
 
                                 <td class="text-nowrap">
                                     @if ($kategori == 'WAITING')
