@@ -34,7 +34,7 @@
             <div class="card-toolbar">
                 <div class="mr-2">
                     <select wire:model="datel" class="form-control" placeholder="Datel">
-                        <option value="">--DATEL--</option>
+                        <option value="">DATEL</option>
                         @foreach ($selectDatels as $item)
                             <option value="{{ $item->datel }}">{{ $item->datel }}</option>
                         @endforeach
@@ -42,7 +42,7 @@
                 </div>
                 <div>
                     <select wire:model="sto" class="form-control"  placeholder="Datel">
-                        <option value="">--STO--</option>
+                        <option value="">STO</option>
                         @foreach ($selectStos as $item)
                             <option value="{{ $item->sto }}">{{ $item->sto }}</option>
                         @endforeach
