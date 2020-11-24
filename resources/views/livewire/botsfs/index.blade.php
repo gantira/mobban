@@ -80,8 +80,9 @@
                 </div>
 
                 <div wire:ignore class="mr-2">
-                    <select wire:model="datel" class="form-control selectpicker datel" multiple="multiple"
+                    <select wire:model="datel" class="form-control"
                         placeholder="Datel">
+                        <option value="">--DATEL--</option>
                         @foreach ($selectDatels as $item)
                             <option value="{{ $item->datel }}">{{ $item->datel }}</option>
                         @endforeach
@@ -89,7 +90,9 @@
                 </div>
 
                 <div wire:ignore class="mr-2">
-                    <select wire:model="sto" class="form-control selectpicker sto" multiple="multiple" placeholder="Datel">
+                    <select wire:model="sto" class="form-control"
+                        placeholder="Datel">
+                        <option value="">--STO--</option>
                         @foreach ($selectStos as $item)
                             <option value="{{ $item->sto }}">{{ $item->sto }}</option>
                         @endforeach
@@ -104,8 +107,6 @@
                         @endforeach
                     </select>
                 </div>
-
-
 
             </div>
         </div>
@@ -321,9 +322,15 @@
             });
         });
 
-        $('.datel').selectpicker({noneSelectedText: 'DATEL'}); 
-        $('.sto').selectpicker({noneSelectedText: 'STO'}); 
-        $('.kategori').selectpicker({noneSelectedText: 'KATEGORI'}); 
+        $('.datel').selectpicker({
+            noneSelectedText: 'DATEL'
+        });
+        $('.sto').selectpicker({
+            noneSelectedText: 'STO'
+        });
+        $('.kategori').selectpicker({
+            noneSelectedText: 'KATEGORI'
+        });
 
     </script>
     <!--end::Page Scripts-->

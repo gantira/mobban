@@ -30,9 +30,9 @@ class Index extends Component
         $botsf = BotSf::when($this->kategori, function ($query) {
             $query->where('kategori', $this->kategori);
         })->when($this->datel, function ($query) {
-            $query->whereIn('datel', $this->datel);
+            $query->where('datel', $this->datel);
         })->when($this->sto, function ($query) {
-            $query->whereIn('sto', $this->sto);
+            $query->where('sto', $this->sto);
         })->when($this->date, function ($query) {
             $date = explode(" - ", $this->date);
             $query->whereBetween('updated_at', [Carbon::parse($date[0] . " 00:00:00"), Carbon::parse($date[1] . " 23:59:59")]);
@@ -51,7 +51,9 @@ class Index extends Component
             'botsfs' => $botsf,
             'selectUserBots' => UserBot::all(),
             'selectDatels' => BotSf::groupBy('datel')->get(),
-            'selectStos' => BotSf::groupBy('sto')->get(),
+            'selectStos' => BotSf::when($this->datel, function ($query) {
+                $query->where('datel', $this->datel);
+            })->groupBy('sto')->get(),
             'selectCategories' => Category::order()->visible()->get(),
         ]);
     }

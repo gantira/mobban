@@ -10,7 +10,6 @@ use Livewire\Component;
 
 class Index extends Component
 {
-    public $dataExport;
     public $datel;
     public $sto;
 
@@ -21,9 +20,9 @@ class Index extends Component
         foreach (BotSf::groupBy('datel')->get() as $key => $datel) {
             foreach (Category::order()->visible()->get() as $key => $category) {
                 $datels[$datel->datel][] = BotSf::when($this->datel, function ($query) {
-                    $query->whereIn('datel', $this->datel);
+                    $query->where('datel', $this->datel);
                 })->when($this->sto, function ($query) {
-                    $query->whereIn('sto', $this->sto);
+                    $query->where('sto', $this->sto);
                 })->whereBetween('updated_at', [Carbon::parse(now()->format('Y-m-d') . " 00:00:00"), Carbon::parse(now()->format('Y-m-d') . " 23:59:59")])
                     ->whereDatel($datel->datel)
                     ->whereKategori($category->name)
@@ -31,13 +30,13 @@ class Index extends Component
             }
         }
 
-        $this->dataExport = $datels;
-
         return view('livewire.dashboards.index', [
             'selectCategories' => Category::order()->visible()->get(),
             'datels' => $datels,
             'selectDatels' => BotSf::groupBy('datel')->get(),
-            'selectStos' => BotSf::groupBy('sto')->get(),
+            'selectStos' => BotSf::when($this->datel, function ($query) {
+                $query->where('datel', $this->datel);
+            })->groupBy('sto')->get(),
         ]);
     }
 

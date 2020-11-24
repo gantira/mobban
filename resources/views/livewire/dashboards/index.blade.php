@@ -32,16 +32,17 @@
         <!--begin::Header-->
         <div class="card-header flex-wrap border-0 pt-6 pb-0">
             <div class="card-toolbar">
-                <div wire:ignore class="mr-2">
-                    <select wire:model="datel" class="form-control selectpicker datel" multiple="multiple" placeholder="Datel">
+                <div class="mr-2">
+                    <select wire:model="datel" class="form-control" placeholder="Datel">
+                        <option value="">--DATEL--</option>
                         @foreach ($selectDatels as $item)
                             <option value="{{ $item->datel }}">{{ $item->datel }}</option>
                         @endforeach
                     </select>
                 </div>
-             
-                <div wire:ignore>
-                    <select wire:model="sto" class="form-control selectpicker sto" multiple="multiple" placeholder="Datel">
+                <div>
+                    <select wire:model="sto" class="form-control"  placeholder="Datel">
+                        <option value="">--STO--</option>
                         @foreach ($selectStos as $item)
                             <option value="{{ $item->sto }}">{{ $item->sto }}</option>
                         @endforeach
