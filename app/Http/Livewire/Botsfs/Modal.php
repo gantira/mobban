@@ -83,8 +83,6 @@ class Modal extends Component
                 'teknisi' => 'nullable',
                 'layanan' => 'nullable',
                 'wo_id' => 'nullable',
-                'ncx_id'=> 'nullable',
-                'crew' => 'nullable',
             ]);
 
             BotSf::create($validateData);
@@ -110,8 +108,6 @@ class Modal extends Component
                 'teknisi' => 'nullable',
                 'layanan' => 'nullable',
                 'wo_id' => 'nullable',
-                'ncx_id'=> 'nullable',
-                'crew' => 'nullable',
             ]);
 
             $this->botsf->update($validateData);
