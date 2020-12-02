@@ -80,19 +80,15 @@
                 </div>
 
                 <div wire:ignore class="mr-2">
-                    <select wire:model="datel" class="form-control"
-                        placeholder="Datel">
-                        <option value="">DATEL</option>
+                    <select wire:model="datel" class="form-control selectpicker datel" multiple="multiple" placeholder="Datel">
                         @foreach ($selectDatels as $item)
                             <option value="{{ $item->datel }}">{{ $item->datel }}</option>
                         @endforeach
                     </select>
                 </div>
-
-                <div wire:ignore class="mr-2">
-                    <select wire:model="sto" class="form-control"
-                        placeholder="Datel">
-                        <option value="">STO</option>
+             
+                <div wire:ignore>
+                    <select wire:model="sto" class="form-control selectpicker sto" multiple="multiple" placeholder="Datel">
                         @foreach ($selectStos as $item)
                             <option value="{{ $item->sto }}">{{ $item->sto }}</option>
                         @endforeach

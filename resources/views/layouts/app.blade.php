@@ -74,7 +74,7 @@
 							<div class="d-flex align-items-stretch mr-3">
 								<!--begin::Header Logo-->
 								<div class="header-logo">
-									<a href="index.html">
+									<a href="{{ url('/') }}">
 										<img alt="Logo" src="{{ asset('assets/media/logos/logo-letter-99.png') }}" class="logo-default max-h-40px" />
 										<img alt="Logo" src="{{ asset('assets/media/logos/logo-letter-100.png') }}" class="logo-sticky max-h-40px" />
 									</a>
